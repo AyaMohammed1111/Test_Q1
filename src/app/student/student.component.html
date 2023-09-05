@@ -1,0 +1,50 @@
+<!-- <h1 style="text-align: center;"><span style="color: red;">STUDENT</span> MARKS</h1> -->
+
+<br>
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="margin-right: 30 px;">
+      <button class="btn btn-outline-primary" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<br>
+<br>
+<div class="container" [ngStyle]="getStyle()">  
+    
+    <h3 style="text-align: center;"> Students <span style="Color: rgb(32, 29, 29); text-align: center;">Marks</span> </h3>  
+      <br>
+    <table class="table table-striped">  
+      <thead>  
+          <tr>  
+            <th>NAME</th>  
+            <th>EMAIL</th>  
+            <th>MARKS (out of 100) </th>  
+            <th>PASS/ FAIL </th>
+          </tr>  
+      </thead>  
+      <tbody>  
+        <!-- [hidden]="Students.Mark < 50" -->
+
+        <tr *ngFor="let Students of studentList"  >  
+          <td>{{ Students.Name }}</td>  
+          <td>{{ Students.Email }}</td>  
+          <td [ngClass]="getMarkColor(Students.Mark)">{{ Students.Mark }}</td>  
+          <td>
+            <span *ngIf="Students.Mark >= 50" class="pass-badge">PASS</span>
+            <span *ngIf="Students.Mark < 50" class="fail-badge">FAIL</span>
+          </td>
+        </tr>  
+      </tbody>  
+    </table>  
+
+  </div>  
+
+  <br>
+  
+  
+
+
+
